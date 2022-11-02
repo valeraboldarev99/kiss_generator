@@ -24,6 +24,13 @@
 			background: orange;
 			color: #000;
 		}
+		#test2 {
+			display: none;
+			width: 673px;
+			height: 373px;
+			background: url('files/test2.png') center center no-repeat;
+
+		}
 
 	</style>
 </head>
@@ -32,9 +39,15 @@
 		<div class="form__items">
 			<input type="number" min="0" id="start_value" class="form__item" placeholder="start value">
 			<input type="number" min="0" id="length" class="form__item" placeholder="length">
+			<select name="test_number" id="test_number" class="form__item">
+				<option value="1">1 - Гистограмма распределения элементов</option>
+				<option value="2">2 - Распределение на плоскости</option>
+				<option value="31">3.1 - Проверка серий(0/1)</option>
+				<option value="32">3.2 - Проверка серий(00/01/10/11)</option>
+			</select>
 			<button onclick="start()" class="btn">Start</button>
 		</div>
-
+		<div id="test2"></div>
 		<canvas id="myCanvas"></canvas>
 		<script src="generator.js"></script>
 		<script src="tests.js"></script>

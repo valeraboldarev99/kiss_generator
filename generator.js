@@ -21,7 +21,6 @@ function un_generator(start_value, length)
 		u2 = (2*u + cn) % 2**32;		//u(n-2)
 		u = (2*u + u2 + cn) % 2 ** 32;
 		un.push(u);
-		it = i - 2;
 	}
 	console.log('un = ' + un);
     return un;
@@ -31,6 +30,8 @@ function start()
 {
 	const start_value = parseInt(document.getElementById('start_value').value|0);
 	const length = parseInt(document.getElementById('length').value|0);
+	const test_number = parseInt(document.getElementById('test_number').value);
+	var test2 = document.getElementById('test2').style.display = 'none';
 	xn_arr = xn_generator(start_value, length);
 	un_arr = un_generator(start_value, length);
 
@@ -44,9 +45,24 @@ function start()
 		result.push((x + u) % 2 ** 32);
 	}
 
-	// test_array = [1,1,1,2,3,5,5,6];
-	// console.log(test_one(test_array));
-	console.log(test_one(result));
-
-	// console.log('result = ' + result);
+	switch(test_number) {
+		case 1:
+			ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);			//clear canvas
+			test_one(result);
+			break;
+		case 2:
+			ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);			//clear canvas
+			test_two(result);
+			break;
+		case 31:
+			ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);			//clear canvas
+			test_three_1(result);
+			break;
+		case 32:
+			ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);			//clear canvas
+			test_three_2(result);
+			break;
+		default:
+			alert('Error');
+	}
 }
