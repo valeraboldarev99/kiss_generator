@@ -70,6 +70,35 @@ function test_three_2(output_array)
 	drawTest(result, 10000);
 }
 
+function test_three_3(output_array)
+{
+	var binary_str = test_three(output_array);
+
+	var count_zero_zero_zero = binary_str.split(/[000]/).length - 1;
+	var count_zero_zero_one = binary_str.split(/[001]/).length - 1;
+	var count_zero_one_zero = binary_str.split(/[10]/).length - 1;
+	var count_zero_one_one = binary_str.split(/[011]/).length - 1;
+
+	var count_one_zero_zero = binary_str.split(/[00]/).length - 1;
+	var count_one_zero_one = binary_str.split(/[101]/).length - 1;
+	var count_one_one_zero = binary_str.split(/[110]/).length - 1;
+	var count_one_one_one = binary_str.split(/[111]/).length - 1;
+
+
+	console.log('000 - ' + count_zero_zero_zero);
+	console.log('001 - ' + count_zero_zero_one);
+	console.log('010 - ' + count_zero_one_zero);
+	console.log('011 - ' + count_zero_one_one);
+
+	console.log('100 - ' + count_one_zero_zero);
+	console.log('101 - ' + count_one_zero_one);
+	console.log('110 - ' + count_one_one_zero);
+	console.log('111 - ' + count_one_one_one);
+
+	var result = [count_zero_zero_zero, count_zero_zero_one, count_zero_one_zero, count_zero_one_one, count_one_zero_zero, count_one_zero_one, count_one_one_zero, count_one_one_one];
+	drawTest(result, 50000);
+}
+
 function drawTest(my_array, gridScale)
 {
 	var myBarchart = new Barchart(
