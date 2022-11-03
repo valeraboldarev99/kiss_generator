@@ -99,6 +99,73 @@ function test_three_3(output_array)
 	drawTest(result, 50000);
 }
 
+function test_four(output_array)
+{
+	var binary_str = [];
+
+	for (var i = 0; i < output_array.length; i++) {
+		binary_str += output_array[i].toString(2);								//переводим всю последовательность в бинарный вид и записываем все в строку
+	}
+	binary_str = binary_str.split('');
+
+	// Алгоритм Берлекэмпа-Мэсси
+	var s = [];
+	for (var i = 0; i < binary_str.length; i++) {
+		s[i] = parseInt(binary_str[i]);
+	}
+	var n = s.length;
+	var c = [];
+	var b = [];
+
+	for(var i = 0; i < n; i++) {
+		c[i] = 0;
+		b[i] = 0;
+	}
+	c[0] = 1;
+	b[0] = 1;
+
+	var L = 0;
+	var m = -1;
+	var N = 0;
+
+	var L_arr = [];
+
+	while (N < n) {
+		var suma = 0;
+
+		for (var i = 1; i < L + 1; i++) {
+			suma = (suma + c[i] * s[N - i]) % 2;
+		}
+		var d = (s[N] + suma) % 2;
+
+		if(d == 1) {
+			var t = [];
+			for (var i = 0; i < n; i++) {
+				t[i] = c[i];
+			}
+
+			for (var j = 0; j < n - N + m; j++) {
+				c[N - m + j] = (c[N - m + j] + b[j]) % 2;
+			}
+
+			if (L <= N / 2) {
+				L = N + 1 - L;
+				m = N;
+				var b = [];
+				for (var i = 0; i < n; i++) {
+					b[i] = t[i];
+				}
+			}
+		}
+		L_arr[N] = L;
+		N++;
+	}
+
+	// console.log(L_arr);
+
+	drawTest(L_arr, 10);
+}
+
 function drawTest(my_array, gridScale)
 {
 	var myBarchart = new Barchart(
