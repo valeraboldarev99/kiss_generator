@@ -3,11 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>KISS генератор</title>
 	<style>
 		.wrapper {
 			width: 80%;
 			margin: 0 auto;
+		}
+		.title {
+			text-align: center;
+			font-size: 30px;
+			font-weight: 600;
+			margin: 25px 0;
 		}
 		.form__item {
 			padding: 5px;
@@ -29,23 +35,22 @@
 			width: 673px;
 			height: 373px;
 			background: url('files/test2.png') center center no-repeat;
-
 		}
-
 	</style>
 </head>
 <body>
 	<div class="wrapper">
 		<div class="form__items">
+			<h1 class="title">KISS генератор</h1>
 			<input type="number" min="0" id="start_value" class="form__item" placeholder="start value">
 			<input type="number" min="0" id="length" class="form__item" placeholder="length">
 			<select name="test_number" id="test_number" class="form__item">
-				<option value="1">1 - Гистограмма распределения элементов</option>
-				<option value="2">2 - Распределение на плоскости</option>
-				<option value="31">3.1 - Проверка серий(0/1)</option>
-				<option value="32">3.2 - Проверка серий(00/01/10/11)</option>
-				<option value="33">3.3 - Проверка серий(000/001/010/011/100/101/110/111)</option>
-				<option value="4">4 - Профиль линейной сложности</option>
+				<option value="1">Гистограмма распределения элементов</option>
+				<option value="2">Распределение на плоскости</option>
+				<option value="31">Проверка серий(0/1)</option>
+				<option value="32">Проверка серий(00/01/10/11)</option>
+				<option value="33">Проверка серий(000/001/010/011/100/101/110/111)</option>
+				<option value="4">Профиль линейной сложности</option>
 			</select>
 			<button onclick="start()" class="btn">Start</button>
 		</div>
