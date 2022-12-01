@@ -70,6 +70,10 @@ function start()
 			ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);			//clear canvas
 			test_four(result);
 			break;
+		case 7:
+			ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);			//clear canvas
+			test_seven(result);
+			break;
 		default:
 			alert('Error');
 	}
